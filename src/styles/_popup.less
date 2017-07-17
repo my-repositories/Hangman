@@ -1,0 +1,96 @@
+@popup-button-text-color: #fff;
+@popup-button-confirm-color: #5cb85c;
+@popup-button-cancel-color: #b85c5c;
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.1);
+	transition: background-color .5s;
+
+	&.animated {
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+}
+
+.popup {
+	position: fixed;
+	margin: 0 auto;
+	top: 37px;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	max-width: 350px;
+	height: 200px;
+	background-color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+
+	h2 {
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+	}
+	
+	span&-close {
+		overflow: hidden;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		right: 5px;
+		font-size: 18px;
+		font-weight: bold;
+		width: 30px;
+		height: 40px;
+		cursor: pointer;
+
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			left: 0;
+			background: #000;
+			height: 7px;
+			margin-top: -6px;
+			border-radius: 5px;
+			transition: background .5s;
+		}
+		&:hover:before, &:hover:after { background: #757575; }
+		&:before { transform: rotate(45deg); }
+		&:after { transform: rotate(-45deg); }
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 15px 30px;
+		font-size: 16px;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		color: @popup-button-text-color;
+		cursor: pointer;
+		transition: background-color .3s, border-color .3s;
+
+		&.confirm {
+			background-color: @popup-button-confirm-color;
+			border-color: darken(@popup-button-confirm-color, 5%);
+
+			&:hover {
+				background-color: darken(@popup-button-confirm-color, 10%);
+				border-color: darken(@popup-button-confirm-color, 15%);
+			}
+		}
+
+		&.cancel {
+			background-color: @popup-button-cancel-color;
+			border-color: darken(@popup-button-cancel-color, 5%);
+
+			&:hover {
+				background-color: darken(@popup-button-cancel-color, 10%);
+				border-color: darken(@popup-button-cancel-color, 15%);
+			}
+		}
+	}
+}

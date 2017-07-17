@@ -1,0 +1,70 @@
+.game {
+	overflow:hidden;
+	text-align: center;
+
+	&-canvas {
+		width: 350px;
+		height: 170px;
+		border: 1px solid #d3d3d3
+	}
+
+	&-title {
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+	}
+
+	&-question {
+		font-size: 20px;
+		font-family: 'Yanone Kaffeesatz',sans-serif;
+		line-height: 20px;
+	}
+
+	&-answer {
+		@offset: 3px;
+		margin: 10px -@offset;
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+
+		&-letter {
+			margin: 0 @offset;
+			font-size: 30px;
+			font-weight: bold;
+
+			&:first-child {
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	&-keyboard {
+		margin: 0 auto;
+		max-width: 480px;
+
+		&-button {
+			transition: color .3s;
+			padding: 5px;
+			flex-grow: 1;
+			font-size: 24px;
+			border: 1px solid #383636;
+			background-color: #222;
+			color: #fff;
+			cursor: pointer;
+			font-family: monospace, sans-serif;
+
+			&:active, &.active {
+				color: #777;
+			}
+
+			&.disabled {
+				color: #444;
+			}   
+		}
+
+		.row {
+			width: 100%;
+			display: flex;
+			box-sizing: border-box;
+
+			&:nth-child(2) {padding: 0 10px;}
+			&:nth-child(3) {padding: 0 20px;}
+		}
+	}
+}
